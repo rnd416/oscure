@@ -1,0 +1,88 @@
+body {
+	background-color: black;
+}
+ul {
+	padding: 0;
+	margin: 0;  
+}
+a {
+	text-decoration: none;
+}
+.dot {
+	width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    background-color: white;
+}
+.navigation {
+	display: flex;
+	position: fixed;
+	top: 50px;
+	left: 50px;
+}
+.navigation-logo {
+	display: block;
+	width: 50px;
+	height: 50px;
+	background-color: blue;
+	background-size: cover;
+}
+.navigation-list {
+	list-style-type: none;
+	display: flex;
+	margin: 0;
+	align-items: center;
+	padding-left: 50px;
+}
+.navigation-item:not(:first-child) {
+	padding-left: 50px;
+}
+.navigation-link {
+	font-size: 15px;
+	font-family:'Raleway', sans-serif;
+	color: white;
+	text-decoration: none;
+	letter-spacing: 1.5px;
+	transition: opacity .4s ease;
+	opacity: 0.5;
+}
+.navigation-link:hover {
+	color: white;
+	text-decoration: none;
+	opacity: 0.75;
+}
+.navigation-link.is-active {
+	color: white;
+	text-decoration: none;
+	opacity: 1;
+}
+
+.languages {
+	position: fixed;
+	top: 50px;
+	right: 50px;
+	display: flex;
+	align-items: center;
+}
+.languages-item {
+	font-size: 14px;
+	font-family:'Raleway', sans-serif;
+	color: white;
+	list-style-type: none;
+}
+.languages-button {
+	background: none;
+	border: none;
+	display: inline-block;
+	letter-spacing: 1.5px;
+	line-height: 50px;
+	outline: 0;
+	transition: opacity .4s ease;
+	opacity: 0.5;
+}
+.languages-button.is-active {
+	opacity: 1;
+}
+.languages-button:hover {
+	opacity: 0.75;
+}
