@@ -1,5 +1,6 @@
 body {
 	background-color: black;
+	color: white;
 }
 ul {
 	padding: 0;
@@ -9,10 +10,11 @@ a {
 	text-decoration: none;
 }
 .dot {
-	width: 5px;
+    width: 5px;
     height: 5px;
     border-radius: 100%;
     background-color: white;
+    margin: 5px;
 }
 .navigation {
 	display: flex;
@@ -26,25 +28,31 @@ a {
 	height: 50px;
 	background-color: blue;
 	background-size: cover;
+	position: fixed;
+	top: 50px;
+	left: 50px;
+	z-index: 10;
 }
 .navigation-list {
 	list-style-type: none;
 	display: flex;
 	margin: 0;
 	align-items: center;
-	padding-left: 50px;
+	position: fixed;
+	left: 150px;
 }
 .navigation-item:not(:first-child) {
 	padding-left: 50px;
 }
 .navigation-link {
-	font-size: 15px;
-	font-family:'Raleway', sans-serif;
+	font: 700 15px/50px Raleway,sans-serif;
 	color: white;
 	text-decoration: none;
 	letter-spacing: 1.5px;
 	transition: opacity .4s ease;
 	opacity: 0.5;
+	display: block;
+	text-transform: uppercase;
 }
 .navigation-link:hover {
 	color: white;
@@ -56,7 +64,32 @@ a {
 	text-decoration: none;
 	opacity: 1;
 }
-
+.navigation-button {
+	width: 50px;
+	height: 50px;
+	position: fixed;
+	top: 50px;
+	right: 50px;
+	background: none;
+	color: white;
+	outline: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	visibility: hidden;
+	transition: color .4s ease;
+}
+.navigation-button::after {
+	background: currentColor;
+	box-shadow: 0 -5px 0 currentColor,0 5px 0 currentColor;
+	content: "";
+	height: 1px;
+	width: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%);
+}
 .languages {
 	position: fixed;
 	top: 50px;
@@ -65,24 +98,113 @@ a {
 	align-items: center;
 }
 .languages-item {
-	font-size: 14px;
-	font-family:'Raleway', sans-serif;
-	color: white;
 	list-style-type: none;
 }
+
 .languages-button {
 	background: none;
 	border: none;
 	display: inline-block;
-	letter-spacing: 1.5px;
+	letter-spacing: 0.1rem;
 	line-height: 50px;
 	outline: 0;
 	transition: opacity .4s ease;
 	opacity: 0.5;
+	font-size: 14px;
+	font-family:'Raleway', sans-serif;
+	color: white;
 }
 .languages-button.is-active {
 	opacity: 1;
 }
 .languages-button:hover {
 	opacity: 0.75;
+}
+@media (max-width: 1023px) {
+	.languages {
+		left: 125px;
+		right: auto;
+	}
+	.navigation-list {
+		position: fixed;
+		visibility: hidden;
+	}
+	.navigation-button {
+		visibility: visible;
+	}
+	.navigation-overlay {
+		background-color: white;
+		display: table;
+		height: 100%;
+		width: 100%;
+		position: fixed;
+		transition: opacity .4s ease,visibility .4s ease;
+		opacity: 0;
+		visibility: hidden;
+		top: 0;
+		left: 0;
+	}
+	.navigation-list {
+		display: table-cell;
+		opacity: 0;
+		transition: opacity .4s ease,visibility .4s ease;
+		position: static;
+		vertical-align: middle;
+		visibility: hidden;
+		padding-left:0;
+	}
+	.navigation-item {
+		display: block;
+		width: 100%;
+	}
+	.navigation-item:not(:first-child) {
+		padding-left: 0;
+	}
+	.navigation-link {
+		color: black;
+		font: 700 50px/100px Raleway,sans-serif;
+		letter-spacing: 0;
+		text-align: left;
+		text-transform: none;
+		padding-left: 50px;
+	}
+	.navigation-link:hover {
+		color: black;
+	}
+	.navigation.is-active .navigation-overlay {
+		visibility: visible;
+		opacity: 1;
+	}
+	.navigation.is-active .navigation-list {
+		visibility: visible;
+		opacity: 1;
+	}
+	.navigation.is-active .navigation-link.is-active {
+		color: black;
+	}
+	.navigation.is-active .navigation-button {
+		color: black;
+	}
+	.navigation.is-active .languages {
+		visibility: hidden;
+	}
+}
+@media (max-width: 767px) {
+	.navigation-logo {
+		left: 25px;
+		top: 25px;
+	}
+	.navigation-button {
+		right: 25px;
+		top: 25px;
+	}
+	.languages {
+		left: 95px;
+		top: 25px;
+	}
+	.navigation-link {
+		padding-left: 25px;
+		font-size: 30px;
+		line-height: 70px;
+	}
 }

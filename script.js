@@ -7,3 +7,7 @@ $('.languages-button').on('click', function() {
 	$('.languages-button.is-active').removeClass('is-active');
 	$(this).addClass('is-active');
 });
+$('.navigation-button').on('click', function() {
+	$('.navigation').toggleClass('is-active');
+	
+});
