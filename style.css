@@ -8,6 +8,7 @@ body {
 	color: white;
 	line-height: 1;
 	text-align: center;
+	margin: 0;
 }
 ul {
 	padding: 0;
@@ -23,6 +24,7 @@ a {
 	position: relative;
 	z-index: 2;
 	padding: 0;
+	margin: 0;
 }
 .dot {
     width: 5px;
