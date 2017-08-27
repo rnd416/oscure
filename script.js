@@ -16,7 +16,9 @@ $('.work-navigation-button-previous').on('click', function() {
 	var newItem = oldItem.prev();
 
 	if (oldItem.is($('.work-item:first'))) {
-		alert('first-child')
+		newItem = $('.work-item:last');
+		oldItem.removeClass('is-active');
+		newItem.addClass('is-active');
 	} else {
 		oldItem.removeClass('is-active');
 		newItem.addClass('is-active');
@@ -27,7 +29,9 @@ $('.work-navigation-button-next').on('click', function() {
 	var newItem = oldItem.next();
 
 	if (oldItem.is($('.work-item:last'))) {
-		alert('last-child')
+		newItem = $('.work-item:first');
+		oldItem.removeClass('is-active');
+		newItem.addClass('is-active');
 	} else {
 		oldItem.removeClass('is-active');
 		newItem.addClass('is-active');
